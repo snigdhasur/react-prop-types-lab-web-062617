@@ -42,6 +42,10 @@ function weightChecker(props, propName, componentName) {
 	}
 }
 
+// this first checks to see if the prop exists [makes sure it is required, otherwise throws error messag]e
+// the it checks if it's a number; if it's not, it throws an error message
+// then checks if IT IS a number, is it withint eh range we want, otherwise throws an error message
+// null means everything is fine :)
 
 
 
