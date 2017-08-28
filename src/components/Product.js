@@ -12,7 +12,7 @@ class Product extends React.Component {
           <li>Producer: {this.props.producer}</li>
           <li>Watermark present?: {this.props.hasWatermark}</li>
           <li>Color: {this.props.color}</li>
-          <li>Weight: {this.props.weight)</li>
+          <li>Weight: {this.props.weight}</li>
         </ul>
       </div>
     );
@@ -29,11 +29,15 @@ function weightChecker(props, propName, componentName) {
     if(props[propName]){
       let value = props[propName]
 	    if(typeof value === 'number') {
-	        return (value >= 80 && value <=300) ? null : new Error(propName + ' in ' + componentName + " must be between 80 and 300");
-	    }
+	        return (value >= 80 && value <= 300) ? null : new Error(propName + ' in ' + componentName + " must be between 80 and 300");
+	    } else {
+        return new Error(
+          propName + ' in ' + componentName + " must be a number"
+      )
+      }
 	} else {
 		return new Error(
-			propName + ' in ' + componentName + " must be between 80 and 300"
+			propName + ' in ' + componentName + " is required"
 			)
 	}
 }
